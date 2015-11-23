@@ -1,0 +1,21 @@
+<div class="col-md-10 col-md-offset-1">
+<div class="panel panel-default">
+  <div class="panel-body">
+   <p> 	
+    	 <strong>遺失物:</strong>
+ 	<%= @lostfound.name %><br>
+  	<strong>類別:</strong>
+  	<%= @lostfound.category %><br>
+  	<strong>描述:</strong>
+  	<%= @lostfound.detail%><br>
+  	<strong>相片:</strong><br>
+  	<%= image_tag @lostfound.image_url(:show_img).to_s %>
+</p>
+
+<%= link_to '編輯', edit_lostfound_path(@lostfound) %> |
+<%= link_to '返回', lostfounds_path %>
+
+  </div>
+</div>
+</div>
+ 

@@ -1,0 +1,30 @@
+
+<%= form_tag lostfounds_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Enter Text..." %>
+    <%= submit_tag "搜尋", name: nil %>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>遺失物</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lostfounds.each do |lostfound| %>
+      <tr>
+        <td><%= lostfound.name %></td>
+        <td><%= image_tag lostfound.image_url(:thumb).to_s %></td>
+        <td><%= lostfound.time %></td>
+        <td><%= link_to '詳細訊息', lostfound %></td>
+        <td><%= link_to '編輯', edit_lostfound_path(lostfound) %></td>
+        <td><%= link_to '刪除', lostfound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
